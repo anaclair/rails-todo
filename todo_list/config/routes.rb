@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "tasks#index"
 
   resources :tasks
+
+  patch '/tasks/:id/complete' => 'tasks#toggle_complete', as: 'toggle_complete_task'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

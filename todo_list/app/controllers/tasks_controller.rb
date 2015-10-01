@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_complete]
 
   # GET /tasks
   # GET /tasks.json
@@ -48,6 +48,18 @@ class TasksController < ApplicationController
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # PATCH/PUT /tasks/1/complete
+  # PATCH/PUT /tasks/1/complete.json
+  def toggle_complete
+    @task.completed = !@task.completed
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
+      format.json { render :show, status: :ok, location: @task }
     end
   end
 
