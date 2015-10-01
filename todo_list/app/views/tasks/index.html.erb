@@ -16,7 +16,6 @@
       <tr>
         <td><%= button_to task.completed ? "[X]" : "[ ]", toggle_complete_task_path(task), method: :patch %></td>
         <td><%= task.description %></td>
-        <td><%= button_to 'Show', task %></td>
         <td><%= button_to 'Edit', edit_task_path(task) %></td>
         <td><%= button_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
