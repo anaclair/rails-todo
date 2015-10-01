@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root "tasks#index"
 
-  get 'tasks/filter/:filter' => 'tasks#filter'
+  delete 'tasks/clear_completed' => 'tasks#clear_completed', as: 'clear_completed'
+
+  get 'tasks/filter/:filter' => 'tasks#filter', as: 'filter_tasks'
 
   resources :tasks, except: :show
 
   patch '/tasks/:id/complete' => 'tasks#toggle_complete', as: 'toggle_complete_task'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

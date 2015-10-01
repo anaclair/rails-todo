@@ -2,27 +2,43 @@
 
 <h1>Listing Tasks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
+<section id="todoapp">
+  <header id="header">
+<%= link_to 'New Task', new_task_path %>
+  </header>
+  <table id="main">
+    <thead>
       <tr>
-        <td><%= button_to task.completed ? "[X]" : "[ ]", toggle_complete_task_path(task), method: :patch %></td>
-        <td><%= task.description %></td>
-        <td><%= button_to 'Edit', edit_task_path(task) %></td>
-        <td><%= button_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= button_to task.completed ? "[X]" : "[ ]", toggle_complete_task_path(task), method: :patch %></td>
+          <td><%= task.description %></td>
+          <td><%= button_to 'Edit', edit_task_path(task) %></td>
+          <td><%= button_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <footer id="footer">
+    <span id="todo-count"><%= Task.where(completed: false).count %> items left.</span>
+    <ul id="filters">
+      <li>
+        <%= link_to 'All', filter_tasks_path("all") %>
+      </li>
+      <li>
+        <%= link_to 'Active', filter_tasks_path("active") %>
+      </li>
+      <li>
+        <%= link_to 'Completed', filter_tasks_path("completed") %>
+      </li>
+    </ul>
+    <%= link_to 'Clear completed', clear_completed_path, method: :delete, id: "clear_completed" %>
+  </footer>
+</section>
 <br>
 
-<%= link_to 'New Task', new_task_path %>
