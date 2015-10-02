@@ -71,6 +71,13 @@ class TasksController < ApplicationController
     end
   end
 
+  # PATCH/PUT /tasks/complete_all
+  def complete_all
+    Task.all.each { |task| task.completed = true; task.save }
+
+    redirect_to root_path
+  end
+
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy

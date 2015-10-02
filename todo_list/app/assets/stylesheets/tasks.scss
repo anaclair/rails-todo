@@ -7,11 +7,20 @@
 */
 
 body {
-  font: 14px, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 14px, 'Helvetica';
   background-color: #f5f5f5;
   line-height: 1.4em;
   color: #4d4d4d;
   font-weight: 300;
+}
+
+h1#page-title {
+  font-family: 'Helvetica Neue 25 UltraLight';
+  color: #E9D7D7;
+  font-size: 100px;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+
 }
 
 a {
@@ -45,6 +54,7 @@ ul#filters {
   list-style-type: none;
   li {
     display: inline;
+    word-wrap: break-word;
   }
 }
 
