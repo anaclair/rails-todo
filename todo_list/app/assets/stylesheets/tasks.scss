@@ -6,12 +6,25 @@
 
 */
 
+* { font-family: 'Helvetica Neue 25 UltraLight'; }
+
 body {
-  font: 14px, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
   background-color: #f5f5f5;
   line-height: 1.4em;
   color: #4d4d4d;
   font-weight: 300;
+}
+
+h1#page-title {
+  
+  color: #E9D7D7;
+  font-size: 100px;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+  text-align: center;
+  margin-bottom: 45px;
+
 }
 
 a {
@@ -23,11 +36,13 @@ section#todoapp {
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1)
 }
 
 table#main {
-  width: 50%;
+  position: relative;
   background-color: white;
+  width: 100%;
 }
 
 tr {
@@ -37,21 +52,107 @@ tr {
 td {
   font-size: 24px;
   border-bottom: 1px solid #ededed;
-  padding: 15px 60px 15px 15px;
+  /*padding: 15px 60px 15px 15px;*/
+}
+
+td.completed {
+  color: #E6E6E6;
+  text-decoration: line-through;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 15px;
 }
 
 ul#filters {
   display: inline;
   list-style-type: none;
+  padding: 0px;
+  margin: auto;
+
+
   li {
     display: inline;
+    word-wrap: break-word;
+    padding: 3px 7px;
+    margin: 3px;
+    text-align: center; 
+
+    &:hover {
+      border: 1px solid #EDD5D5;
+      border-radius: 3px;
+    }
+  }
+
+  li.active {
+      border: 1px solid #EDD5D5;
+      border-radius: 3px;
   }
 }
 
 span#todo-count {
   float: left;
+  font-weight: bold;
 }
 
 a#clear_completed {
   float: right;
+}
+
+thead tr {
+  border-bottom: 2px solid #E6E6E6;
+}
+
+#new-task-form {
+  height: 100%;
+  width: 60%;
+
+}
+
+th { 
+  padding: 0;
+}
+
+#task_description {
+  font-size: 24px;
+  font-weight: bold;  
+  height: 65px;
+  min-width: 167px;
+  max-width: 400px; 
+  color: #4D4D4D;
+  border: 0;
+}
+
+.task_description {
+  font-weight: 100;
+}
+
+input[type=submit] {
+  border-radius: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #EFEFEF;
+  font-style: italic;
+}
+input:-moz-placeholder {
+  color: #EFEFEF;
+}
+
+i {
+  color: #EFEFEF;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #EFEFEF;
+}
+
+.button_to input.toggle {
+  width: 20px;
 }

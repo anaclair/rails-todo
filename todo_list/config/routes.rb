@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "tasks#index"
 
+
+  patch '/tasks/complete_all' => 'tasks#complete_all', as: 'complete_all'
   delete 'tasks/clear_completed' => 'tasks#clear_completed', as: 'clear_completed'
 
   get 'tasks/filter/:filter' => 'tasks#filter', as: 'filter_tasks'
