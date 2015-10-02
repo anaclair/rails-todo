@@ -12,3 +12,9 @@
     var head = document.getElementsByTagName("head")[0];
     head.appendChild(trial);
 })();
+
+$(document).ready(function(){
+
+
+
+});

@@ -3,21 +3,24 @@
 <h1 id="page-title">todos</h1>
 
 <section id="todoapp">
-  <header id="header">
-  <%= link_to 'V', complete_all_path, method: :patch %> </span><%= link_to 'What needs to be done?', new_task_path %>
-  </header>
   <table id="main">
     <thead>
       <tr>
-        <th></th>
-        <th colspan="3"></th>
+        <th><%= link_to raw("<i class='fa fa-chevron-down fa-2  x'></i>"), complete_all_path, method: :patch %></th>
+        <th colspan="3" id="form-header">
+          <%= form_for :task, url: { action: :create }, id: "new-task-form" do |f| %>
+            <%= f.text_field :description, placeholder: "What is to be done?" %>
+            <%= f.submit %>
+          <% end %>
+        </th>
       </tr>
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= button_to task.completed ? "[X]" : "[ ]", toggle_complete_task_path(task), method: :patch %></td>
-          <td <%= 'class=completed' if task.completed %> ><%= task.description %></td>
+          <td><%= %></td>
+          <td><%= button_to "", toggle_complete_task_path(task), method: :patch, class: "toggle" %></td>
+          <td <%= 'class=completed' if task.completed %> class="task-description"><%= task.description %></td>
           <td><%= button_to 'Edit', edit_task_path(task) %></td>
           <td><%= button_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -25,7 +28,7 @@
     </tbody>
   </table>
   <footer id="footer">
-    <span id="todo-count"><%= Task.where(completed: false).count %> items left.</span>
+    <span id="todo-count"><%= pluralize(Task.where(completed: false).count, "item") %> left.</span>
     <ul id="filters">
       <li class="<%= filter_active?("all") ? "active" : '' %>">
         <%= link_to 'All', filter_tasks_path("all") %>

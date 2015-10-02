@@ -6,8 +6,10 @@
 
 */
 
+* { font-family: 'Helvetica Neue 25 UltraLight'; }
+
 body {
-  font: 14px, 'Helvetica';
+  font-size: 14px;
   background-color: #f5f5f5;
   line-height: 1.4em;
   color: #4d4d4d;
@@ -15,12 +17,13 @@ body {
 }
 
 h1#page-title {
-  font-family: 'Helvetica Neue 25 UltraLight';
+  
   color: #E9D7D7;
   font-size: 100px;
   font-weight: 100;
   text-rendering: optimizeLegibility;
   text-align: center;
+  margin-bottom: 45px;
 
 }
 
@@ -33,6 +36,7 @@ section#todoapp {
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1)
 }
 
 table#main {
@@ -59,7 +63,6 @@ td.completed {
 footer {
   text-align: center;
   padding: 10px 15px;
-  color: #E6E6E6;
 }
 
 ul#filters {
@@ -67,6 +70,7 @@ ul#filters {
   list-style-type: none;
   padding: 0px;
   margin: auto;
+
 
   li {
     display: inline;
@@ -89,12 +93,66 @@ ul#filters {
 
 span#todo-count {
   float: left;
+  font-weight: bold;
 }
 
 a#clear_completed {
   float: right;
 }
 
+thead tr {
+  border-bottom: 2px solid #E6E6E6;
+}
+
+#new-task-form {
+  height: 100%;
+  width: 60%;
+
+}
+
+th { 
+  padding: 0;
+}
+
+#task_description {
+  font-size: 24px;
+  font-weight: bold;  
+  height: 65px;
+  min-width: 167px;
+  max-width: 400px; 
+  color: #4D4D4D;
+  border: 0;
+}
+
+.task_description {
+  font-weight: 100;
+}
+
 input[type=submit] {
   border-radius: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #EFEFEF;
+  font-style: italic;
+}
+input:-moz-placeholder {
+  color: #EFEFEF;
+}
+
+i {
+  color: #EFEFEF;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #EFEFEF;
+}
+
+.button_to input.toggle {
+  width: 20px;
 }
