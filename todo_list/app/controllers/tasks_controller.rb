@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy, :toggle_complete]
   before_action :order_tasks, only: [:index, :filter]
+  include TasksHelper
 
   # GET /tasks
   # GET /tasks.json
@@ -66,7 +67,7 @@ class TasksController < ApplicationController
     @task.save
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
+      format.html { redirect_to :back, notice: 'Task was successfully updated.' }
       format.json { render :show, status: :ok, location: @task }
     end
   end

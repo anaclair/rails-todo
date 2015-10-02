@@ -20,6 +20,7 @@ h1#page-title {
   font-size: 100px;
   font-weight: 100;
   text-rendering: optimizeLegibility;
+  text-align: center;
 
 }
 
@@ -35,8 +36,9 @@ section#todoapp {
 }
 
 table#main {
-  width: 50%;
+  position: relative;
   background-color: white;
+  width: 100%;
 }
 
 tr {
@@ -46,15 +48,42 @@ tr {
 td {
   font-size: 24px;
   border-bottom: 1px solid #ededed;
-  padding: 15px 60px 15px 15px;
+  /*padding: 15px 60px 15px 15px;*/
+}
+
+td.completed {
+  color: #E6E6E6;
+  text-decoration: line-through;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 15px;
+  color: #E6E6E6;
 }
 
 ul#filters {
   display: inline;
   list-style-type: none;
+  padding: 0px;
+  margin: auto;
+
   li {
     display: inline;
     word-wrap: break-word;
+    padding: 3px 7px;
+    margin: 3px;
+    text-align: center; 
+
+    &:hover {
+      border: 1px solid #EDD5D5;
+      border-radius: 3px;
+    }
+  }
+
+  li.active {
+      border: 1px solid #EDD5D5;
+      border-radius: 3px;
   }
 }
 
@@ -64,4 +93,8 @@ span#todo-count {
 
 a#clear_completed {
   float: right;
+}
+
+input[type=submit] {
+  border-radius: 100%;
 }

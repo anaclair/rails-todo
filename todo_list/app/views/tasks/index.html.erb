@@ -4,7 +4,7 @@
 
 <section id="todoapp">
   <header id="header">
-  <%= link_to 'V', complete_all_path, method: :patch %> </span><%= link_to 'New Task', new_task_path %>
+  <%= link_to 'V', complete_all_path, method: :patch %> </span><%= link_to 'What needs to be done?', new_task_path %>
   </header>
   <table id="main">
     <thead>
@@ -17,7 +17,7 @@
       <% @tasks.each do |task| %>
         <tr>
           <td><%= button_to task.completed ? "[X]" : "[ ]", toggle_complete_task_path(task), method: :patch %></td>
-          <td><%= task.description %></td>
+          <td <%= 'class=completed' if task.completed %> ><%= task.description %></td>
           <td><%= button_to 'Edit', edit_task_path(task) %></td>
           <td><%= button_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -27,13 +27,13 @@
   <footer id="footer">
     <span id="todo-count"><%= Task.where(completed: false).count %> items left.</span>
     <ul id="filters">
-      <li>
+      <li class="<%= filter_active?("all") ? "active" : '' %>">
         <%= link_to 'All', filter_tasks_path("all") %>
       </li>
-      <li>
+      <li class="<%= filter_active?("active") ? "active" : '' %>">
         <%= link_to 'Active', filter_tasks_path("active") %>
       </li>
-      <li>
+      <li class="<%= filter_active?("completed") ? "active" : '' %>">
         <%= link_to 'Completed', filter_tasks_path("completed") %>
       </li>
     </ul>
